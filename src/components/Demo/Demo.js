@@ -1,13 +1,11 @@
 import React from 'react';
-import Switch from '../Switch/Switch';
+import Form from '../Form/Form';
+
 
 const Demo = () => {
   return (
     <div className="container">
-      <Switch 
-        isActive={true}
-        onClick={isActive => console.log(isActive)}
-      />
+      <Form title="Форма" />
     </div>
   );
 };
