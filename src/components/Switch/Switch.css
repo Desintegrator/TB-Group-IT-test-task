@@ -1,0 +1,17 @@
+.switch {
+    width: 44px;
+    height: 22px;
+    background-color: #f8f0f0;
+}
+
+.switch:after {
+    content: '';
+    width: 20px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.switch_active {
+    background-color: #a6d1ff;
+}
