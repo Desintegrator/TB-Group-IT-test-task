@@ -3,7 +3,7 @@ import Switch from '../Switch/Switch';
 
 const Demo = () => {
   return (
-    <div>
+    <div className="container">
       <Switch 
         isActive={true}
         onClick={isActive => console.log(isActive)}
