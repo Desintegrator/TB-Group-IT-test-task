@@ -10,7 +10,7 @@ export default class Form extends Component {
     super(props);
     this.state={};
     this.state.additionalFields=false;
-    this.state.sliderValue=0;
+    this.state.sliderValue=10;
   }
 
   render() {
@@ -37,7 +37,10 @@ export default class Form extends Component {
           </Field> : null}
         <Field title="Поле 4">
           <div className="form__subtitle">Value: {this.state.sliderValue}</div>
-          <Slider onChange={value => this.setState({ sliderValue: value })} />
+          <Slider
+            onChange={value => this.setState({ sliderValue: value })}
+            defaultValue={this.state.sliderValue}
+          />
         </Field>
       </form>
     );

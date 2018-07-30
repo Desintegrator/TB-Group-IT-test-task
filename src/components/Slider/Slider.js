@@ -7,6 +7,7 @@ export default class Slider extends Component {
     super(props);
     this.state = { };
     this.state.isHold = false;
+    this.state.value = this.props.defaultValue;
     this.onMouseUp = this.onMouseUp.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onTouchEnd = this.onTouchEnd.bind(this);
@@ -14,15 +15,9 @@ export default class Slider extends Component {
     this.onHandleMove = this.onHandleMove.bind(this);
   }
 
-  getNewValue() {
-    return 0;
-  }
-
   onHandleMove(e) {
     const {
       slider,
-      handle,
-      track,
     } = this;
 
     const {
@@ -39,8 +34,6 @@ export default class Slider extends Component {
     deltaX = deltaX < 0 ? 0 : deltaX > sliderWidth ? sliderWidth : deltaX;
 
     const newValue = parseInt(deltaX * 100 / sliderWidth, 10);
-    handle.style.left = `${newValue}%`;
-    track.style.width = `${newValue}%`;
     this.setState({ value: newValue });
 
     onChange && onChange(newValue);
@@ -88,11 +81,11 @@ export default class Slider extends Component {
         <div className="slider__rail"></div>
         <div
           className="slider__track"
-          ref={track => this.track = track}  
+          style={{ width: this.state.value + '%'}}
         ></div>
         <div
           className="slider__handle"
-          ref={handle => this.handle = handle}  
+          style={{ left: this.state.value + '%'}}
         ></div>
       </div>
     );
