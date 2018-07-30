@@ -23,6 +23,11 @@ export default class Switch extends Component {
   }
 
   render() {
+    const {
+      onText,
+      offText,
+    } = this.props;
+
     const switchClasses = classnames({
       switch: true,
       'switch_active': this.state.isActive,
@@ -33,7 +38,7 @@ export default class Switch extends Component {
         className={switchClasses}
         onClick={this.onClick}
       >
-        <div className="switch__inner"></div>
+        <div className="switch__inner">{this.state.isActive ? onText ? onText : null : offText ? offText : null}</div>
       </div>
     );
   }
@@ -42,6 +47,8 @@ export default class Switch extends Component {
 Switch.propTypes = {
   isActive: PropTypes.bool,
   onClick: PropTypes.func,
+  onText: PropTypes.string,
+  offText: PropTypes.string,
 }
 
 Switch.defaultProps = {
